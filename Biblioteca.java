@@ -17,4 +17,8 @@ public class Biblioteca {
       this.setSocios(p_socios);
       this.setLibros(p_libros);
    }
+   //setter
+   private void setNombre(String p_nombre){
+       this.nombre = p_nombre;
+   }
 }
