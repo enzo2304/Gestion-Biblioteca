@@ -62,4 +62,12 @@ public class Biblioteca {
        //aca el mismo dilema de como acomodan los parametros en el constructor 
        this.agregarLibro(new Libro(p_titulo,p_edicion,p_editorial,p_anio));
    }
+   
+   public void nuevoSocioEstudiante(int p_dniSocio, String p_nombre, String p_carrera){
+       this.agregarSocio(new Estudiante(p_dniSocio,p_nombre,p_carrera));
+   }
+   
+   public void nuevoSocioDocente(int p_dniSocio, String p_nombre, String p_area){
+       this.agregarSocio(new Docente(p_dniSocio,p_nombre,p_are));
+   }
 }
