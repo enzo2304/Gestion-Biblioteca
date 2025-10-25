@@ -7,6 +7,7 @@ import java.util.Iterator;
 public class Biblioteca {
    private String nombre;
    private ArrayList<Socio> socios;
+   //esto tendria que ser hashmap? el de socios
    private ArrayList<Libro> libros;
 
    public Biblioteca(String p_nombre) {
