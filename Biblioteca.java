@@ -11,7 +11,19 @@ public class Biblioteca {
       this.setSocios(new HashMap<Integer,Socio>());
       this.setLibros(new ArrayList<Libro>());
    }
-
+   
+   public Biblioteca(String p_nombre,HashMap<Integer,Socio> p_socios) {
+      this.setNombre(p_nombre);
+      this.setSocios(p_socios);
+      this.setLibros(new ArrayList<Libro>());
+   } 
+   
+   public Biblioteca(String p_nombre, ArrayList<Libro> p_libros) {
+      this.setNombre(p_nombre);
+      this.setSocios(new HashMap<Integer,Socio>());
+      this.setLibros(p_libros);
+   }
+   
    public Biblioteca(String p_nombre, HashMap<Integer,Socio> p_socios,  ArrayList<Libro> p_libros) {
       this.setNombre(p_nombre);
       this.setSocios(p_socios);
