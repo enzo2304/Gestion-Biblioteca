@@ -11,7 +11,19 @@ public class Biblioteca {
       this.setSocios(new HashMap<Integer,Socio>());
       this.setLibros(new ArrayList<Libro>());
    }
-
+   
+   public Biblioteca(String p_nombre,HashMap<Integer,Socio> p_socios) {
+      this.setNombre(p_nombre);
+      this.setSocios(p_socios);
+      this.setLibros(new ArrayList<Libro>());
+   } 
+   
+   public Biblioteca(String p_nombre, ArrayList<Libro> p_libros) {
+      this.setNombre(p_nombre);
+      this.setSocios(new HashMap<Integer,Socio>());
+      this.setLibros(p_libros);
+   }
+   
    public Biblioteca(String p_nombre, HashMap<Integer,Socio> p_socios,  ArrayList<Libro> p_libros) {
       this.setNombre(p_nombre);
       this.setSocios(p_socios);
@@ -61,5 +73,13 @@ public class Biblioteca {
    public void nuevoLibro(String p_titulo, int p_edicion,String p_editorial, int p_anio){
        //aca el mismo dilema de como acomodan los parametros en el constructor 
        this.agregarLibro(new Libro(p_titulo,p_edicion,p_editorial,p_anio));
+   }
+   
+   public void nuevoSocioEstudiante(int p_dniSocio, String p_nombre, String p_carrera){
+       this.agregarSocio(new Estudiante(p_dniSocio,p_nombre,p_carrera));
+   }
+   
+   public void nuevoSocioDocente(int p_dniSocio, String p_nombre, String p_area){
+       this.agregarSocio(new Docente(p_dniSocio,p_nombre,p_are));
    }
 }
