@@ -82,4 +82,36 @@ public class Biblioteca {
    public void nuevoSocioDocente(int p_dniSocio, String p_nombre, String p_area){
        this.agregarSocio(new Docente(p_dniSocio,p_nombre,p_are));
    }
+   
+   //****FALTA devolverLibro(Libro):***********
+   
+   /**
+    * Devuelve la cantidad de un tipo de socio recibido por parametro
+    */
+   public int cantidadDeSociosPorTipos(String p_tipo){
+       int cont = 0;
+       
+       for(Map.Entry<Integer,Socio> entrada : this.getSocios().entrySet()){
+           if(entrada.getValue().soyDeLaClase().equalsIgnoreCase(p_tipo)){
+               cont++;
+           }
+       }
+       
+       return cont;
+   }
+   
+   /**
+    * - prestamosVencidos(): devuelve una colección con los préstamos vencidos al día de la fecha. 
+    */
+   public ArrayList prestamosVencidos(){
+       Calendar fechaActual = Calendar.getInstance();
+       ArrayList prentamosVencidos = new ArrayList();
+       
+       for(Map.Entry<Integer,Socio> entrada : this.getSocios().entrySet()){
+           if(){
+            }
+       }
+       
+       
+   }
 }
