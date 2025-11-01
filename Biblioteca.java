@@ -3,9 +3,9 @@ import java.util.*;
 public class Biblioteca {
    private String nombre;
    private HashMap<Integer,Socio> socios;
-   //esto tendria que ser hashmap? el de socios
    private ArrayList<Libro> libros;
 
+   // Constructores 
    public Biblioteca(String p_nombre) {
       this.setNombre(p_nombre);
       this.setSocios(new HashMap<Integer,Socio>());
@@ -29,7 +29,8 @@ public class Biblioteca {
       this.setSocios(p_socios);
       this.setLibros(p_libros);
    }
-   //setter
+   
+   // Setters
    private void setNombre(String p_nombre){
        this.nombre = p_nombre;
    }
@@ -40,7 +41,7 @@ public class Biblioteca {
        this.socios = p_socios;
    }
    
-   //getter
+   // Getters
    public String getNombre(){
        return this.nombre;
    }
@@ -51,25 +52,24 @@ public class Biblioteca {
        return this.libros;
    }
    
-   //agregar libros o socios
-   
+   // Agregar o Quitar Libro
    public void agregarLibro(Libro p_libro){
        this.getLibros().add(p_libro);
    }
+    public void quitarLibro(Libro p_libro){
+       this.getLibros().remove(p_libro);
+   }
+   
+   // Agregar o Quitar Socio
    public void agregarSocio(Socio p_socio){
        //aca vamos a tener que ver como le llaman al getDni o getDniSocio
        this.getSocios().put(new Integer(p_socio.getDni) , p_socio);
-   }
-   
-   
-   //eliminar libro o socio
-   public void quitarLibro(Libro p_libro){
-       this.getLibros().remove(p_libro);
-   }
+   }  
    public void eliminarSocio(Socio p_socio){
        this.getSocios().remove(new Integer(p_socio.getDni));
    }
    
+   // Métodos
    public void nuevoLibro(String p_titulo, int p_edicion,String p_editorial, int p_anio){
        //aca el mismo dilema de como acomodan los parametros en el constructor 
        this.agregarLibro(new Libro(p_titulo,p_edicion,p_editorial,p_anio));
@@ -83,7 +83,15 @@ public class Biblioteca {
        this.agregarSocio(new Docente(p_dniSocio,p_nombre,p_are));
    }
    
-   //****FALTA devolverLibro(Libro):***********
+   // Prestar y Devolver Libro
+    public void devolverLibro(Libro p_libro) throws LibroNoPrestadoException {
+      if (p_libro.prestado()) {
+         p_libro.getPrestamo().registrarFechaDevolucion(new GregorianCalendar());
+      } else {
+         throw new LibroEnBiblioteca("El libro '" + p_libro.getTitulo() + "' no se puede devolver ya que se encuentra en la biblioteca\n");
+      }
+   }
+   
    
    /**
     * Devuelve la cantidad de un tipo de socio recibido por parametro
