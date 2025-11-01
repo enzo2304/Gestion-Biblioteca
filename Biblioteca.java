@@ -128,4 +128,72 @@ public class Biblioteca {
        
        
    }
+   
+   public String listarSocio(){
+       //Inicializa un StringBuilder
+        StringBuilder auxListado = new StringBuilder();
+        int n=0;
+       auxListado.append("Lista de Socios: \n");
+       for(Map.Entry<Integer,Socio> entrada : this.getSocios().entrySet()){
+           n++;
+           auxListado.append(n + ") ");
+           //añadimos el texto 
+           auxListado.append(entrada.getValue().toString());
+           
+           auxListado.append("\n");
+       }
+       
+       // los convertimos a string 
+       String listado = auxListado.toString();
+       
+       return listado;
+   }
+   
+   public String listaDeLibro(){
+       StringBuilder auxListado = new StringBuilder();
+       int n=0;
+       auxListado.append("Lista de Libros: \n");
+       for(Libro unLibro : this.getLibros()){
+           n++;
+           auxListado.append(n + ") ");
+           
+           auxListado.append(unLibro.toString() + "||"+"Prestado: "+ (unLibro.prestado() ? "Si" : "No"));
+           
+           auxListado.append("\n");
+       }
+       
+       String listado = auxListado.toString();
+       
+       return listado;
+   }
+   
+   public String listaDeTitulos(){
+       StringBuilder auxListado = new StringBuilder();
+       int n=0;
+       for(Libro unLibro : this.getLibros()){
+           n++;
+           auxListado.append(n + ") ");
+           
+           auxListado.append(unLibro.toString() );
+           
+           auxListado.append("\n");
+       }
+       String listado = auxListado.toString();
+       
+       return listado;
+   }
+   
+   public String listaDeDocentesResponsables(){
+       StringBuilder auxListado = new StringBuilder();
+       int n=0;
+       auxListado.append("Lista de Docentes Responsables:  \n");
+       for(Socio unDocente : this.docentesResponsables()){
+           
+          auxListado.append("*"+unDocente.toString());
+          
+       }
+       String listado = auxListado.toString();
+       
+       return listado;
+   }
 }
