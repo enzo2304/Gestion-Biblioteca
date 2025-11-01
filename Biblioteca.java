@@ -108,7 +108,7 @@ public class Biblioteca {
        ArrayList prentamosVencidos = new ArrayList();
        
        for(Map.Entry<Integer,Socio> entrada : this.getSocios().entrySet()){
-           if(){
+           if(entrada.getValue().){
             }
        }
        
