@@ -113,11 +113,17 @@ public class Biblioteca {
     */
    public ArrayList prestamosVencidos(){
        Calendar fechaActual = Calendar.getInstance();
-       ArrayList prentamosVencidos = new ArrayList();
-       
+       ArrayList prestamosVencidos = new ArrayList();
+       //Llammos a los  socio de la lista
        for(Map.Entry<Integer,Socio> entrada : this.getSocios().entrySet()){
-           if(){
-            }
+           
+           //luego recorremos los prestamos de un socio y vamos comparando si un prestamos en particular vencio
+           for(Prestamo unPrestamo : entrada.getValue().getPrestamos()){
+               
+               if(unPrestamo.vencido(fechaActual)){
+                   prestamosVnecidos.add(unPrestamo);
+               }
+           }
        }
        
        
