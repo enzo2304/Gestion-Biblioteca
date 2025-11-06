@@ -195,7 +195,7 @@ public class Biblioteca {
        for(Socio unDocente : this.docentesResponsables()){
            
           auxListado.append("*"+unDocente.toString());
-          
+          auxListado.append("\n");
        }
        String listado = auxListado.toString();
        
